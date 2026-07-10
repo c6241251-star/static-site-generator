@@ -1,8 +1,8 @@
 class HTMLNode:
     def __init__(
             self, 
-            tag:   str | None                 = None, 
-            value: str | None                 = None, 
+            tag:      str | None              = None, 
+            value:    str | None              = None, 
             children: list["HTMLNode"] | None = None, 
             props:    dict[str, str]   | None = None
         ) -> None:
@@ -56,4 +56,3 @@ class ParentNode(HTMLNode):
         if self.children is None or len(self.children) == 0:
             raise ValueError("children missing")
         return f'<{self.tag}{self.props_to_html()}>{"".join([child.to_html() for child in self.children])}</{self.tag}>'
-        
